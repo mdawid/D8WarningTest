@@ -45,9 +45,12 @@ D8: Type `org.conscrypt.Conscrypt` was not found, it is required for default or 
 ```
 
 Adding below lines
-```-dontwarn org.apache.http.**
+```-keep class org.apache.http.** { *; }
+-dontwarn org.apache.http.**
+-keep class com.squareup.okhttp.** { *; }
 -dontwarn com.squareup.okhttp.**
--downwarn org.springframework.http.client.**
+-keep class org.springframework.http.client.** { *; }
+-dontwarn org.springframework.http.client.**
 ```
 to `proguard-rules.pro` file does not remove warnings.
 
