@@ -1,21 +1,29 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+-target 1.8
+#-dump build/class_files.txt
+#-printseeds build/seeds.txt
+#-printusage build/unused.txt
+#-printmapping build/mapping.txt
+#-verbose
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+### OkHttp 3
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
+-dontwarn okhttp3.internal.platform.*
+-dontnote okhttp3.internal.platform.*
+# A resource is loaded with a relative path so the package of this class must be preserved.
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+### end of OkHttp 3
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+### Spring framework
+-dontwarn org.springframework.http.client.*
+-dontwarn org.springframework.http.converter.json.**
+-dontwarn org.simpleframework.xml.**
+-dontwarn org.springframework.core.convert.support.ConvertingPropertyEditorAdapter
+### end of Springframework
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+### The two lines below have no effect on D8 warnings
+-dontwarn org.apache.http.**
+-dontwarn com.squareup.okhttp.**
+###
