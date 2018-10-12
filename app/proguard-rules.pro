@@ -21,13 +21,15 @@
 -dontwarn org.springframework.http.converter.json.**
 -dontwarn org.simpleframework.xml.**
 -dontwarn org.springframework.core.convert.support.ConvertingPropertyEditorAdapter
-### end of Springframework
+### end of Spring framework
 
-### The lines below have no effect on D8 warnings
--keep class org.apache.http.** { *; }
+### ---> The lines below have no effect on D8 warnings <---
+-keep public class org.apache.http.** { *; }
 -dontwarn org.apache.http.**
--keep class com.squareup.okhttp.** { *; }
+
+-keep public class com.squareup.okhttp.** { *; }
 -dontwarn com.squareup.okhttp.**
--keep class org.springframework.http.client.** { *; }
--dontwarn org.springframework.http.client.**
-###
+
+-keep public class org.springframework.http.** { *; }
+-dontwarn org.springframework.http.**
+### end of D8 warnings
