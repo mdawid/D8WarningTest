@@ -30,6 +30,6 @@
 -keep public class com.squareup.okhttp.** { *; }
 -dontwarn com.squareup.okhttp.**
 
--keep public class org.springframework.http.** { *; }
+-keep, includedescriptorclasses public class org.springframework.http.** { *; }
 -dontwarn org.springframework.http.**
 ### end of D8 warnings
