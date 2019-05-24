@@ -1,14 +1,23 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+
     repositories {
+		maven {
+			url 'http://storage.googleapis.com/r8-releases/raw'
+        }
+		maven {
+            url "http://storage.googleapis.com/r8-releases/raw/master"
+        }
         google()
         jcenter()
     }
+	
     dependencies {
+		// Latest R8 shrinker release
+        classpath 'com.android.tools:r8:be19d3086ff9318f8267b3664af7453ae2f94e9a'  // Must be before the Gradle Plugin for Android.
         // AGP 3.1.4 does not warn about missing classes
-        classpath 'com.android.tools.build:gradle:3.5.0-beta01'
+        classpath 'com.android.tools.build:gradle:3.5.0-beta02'
         
 
         // NOTE: Do not place your application dependencies here; they belong
